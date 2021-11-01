@@ -1,9 +1,15 @@
-import React from 'react'
 
-const HomeLayout = () => {
+import React from 'react'
+import Sidebar from 'components/Sidebar'
+
+const HomeLayout = ({children}) => {
     return (
-        <div>
-           Home 
+        <div className='flex w-screen h-screen '>
+            <Sidebar/>
+            <main className='flex w-full bg-gray-200 overflow-y-scroll'>
+            {children}
+            </main>
+           
         </div>
     )
 }

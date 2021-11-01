@@ -1,12 +1,12 @@
-import Header from './Header'
-import Footer from './Footer'
+import Navbar from 'components/Navbar'
+import Footer from 'components/Footer'
 import React from 'react'
 
 const PublicLayout = ({children}) => {
  return (
-    <div className='mainContainer'>
-        <Header/>
-        <main>{children}</main>
+    <div className='flex flex-col justify-between h-screen'>
+        <Navbar/>
+        <main className='h-full overflow-y-scroll bg-gray-100'>{children}</main>
         <Footer/>
     </div>
  )
