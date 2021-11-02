@@ -1,3 +1,4 @@
+import React from 'react';
 import Index from 'pages/Index';
 import Login from 'pages/Login';
 import Registro from 'pages/Registro';
