@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from 'react'
 
+
+
+
 const Inmuebles = () => {
     
     const [mostrarTabla, setMostrarTabla] = useState(true);
@@ -12,12 +15,12 @@ const Inmuebles = () => {
           setTextoBoton('Mostrar todos los Inmuebles');
         }
 
-    },[mostrarTabla])
+    },[mostrarTabla]);
 
     return (
        <div className='flex h-full w-full flex-col items-center justify-start p-8'>
            <div className='flex flex-col'>
-             <h2 className='text-3xl font-extrabold text-gray-900'>
+             <h2 className='text-3xl font-extrabold text-gray-900 justify-center'>
                  Pagina de administracion de Inmuebles</h2>
              <button 
              onClick= {()=>{setMostrarTabla(!mostrarTabla);
@@ -34,7 +37,9 @@ const Inmuebles = () => {
 
 const TablaInmuebles = () => {
     return (
-        <table>
+        <div className='flex flex-col items-center justify-center'>
+         <h2 className='text-2xl font-extrabold text-gray-800'> Todos los Inmuebles </h2>
+            <table>
             <thead>
                 <tr>
                     <th>Id del Inmueble</th>
@@ -69,23 +74,30 @@ const TablaInmuebles = () => {
                     <td>350</td>
                 </tr>
             </tbody>
-        </table>
+            </table>
+        </div>
     )
 };
-
+ 
 const FormularioCreacionInmueble = () => {
     return (
     <div className='flex flex-col items-center justify-center'> 
-        <h2 className='text-2xl font-extrabold text-gray-800'>Crear Nuevo Vehiculo</h2>
-        <form classname='grid grid-cols-2'>
-            <input className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2' type='text' />
-            <input className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2' type='text' />
-            <input className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2' type='text' />
-            <input className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2' type='text' />
-            <button className='col-span-2 bg-indigo-400 p-4 rounded-full shadow-md hover:bg-indigo-600 text-white'>Guardar Inmueble</button>
+        <h2 className='text-2xl font-extrabold text-gray-800'>Crear Nuevo Inmueble</h2>
+        <form classname='grid grid-col-2'>
+            <input ClassName='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2' 
+            type='text' placeholder='IdInmueble' />
+            <input className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2' 
+            type='text' placeholder='direccionInmueble'/>
+            <input className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2' 
+            type='text'placeholder='areaInmueble' />
+            <input className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            type='text'  placeholder='precio'/>
+            <button onclick={()=>setMostrarTabla(true)}
+             className='col-span-2 bg-indigo-400 p-4 rounded-full shadow-md hover:bg-indigo-600
+             text-white'>Guardar Inmueble</button>
         </form>
     </div>
-    )
-}
+    );
+};
 
 export default Inmuebles
