@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 
 
-const vehiculosBackend = [
+const inmueblesBackend = [
     {
         idInmueble: 'HR2542',
         direccionInmueble: '24 pimpama rd',
