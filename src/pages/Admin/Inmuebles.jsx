@@ -36,7 +36,7 @@ const Inmuebles = () => {
 
     useEffect (() => {
         //obtener lista de vehiciculos de backend
-        setVehiculos(vehiculosBackend);
+        setInmuebles(inmueblesBackend);
     }, []);
 
     useEffect(()=>{
@@ -61,7 +61,10 @@ const Inmuebles = () => {
             {textoBoton}</button>
 
            </div>
-           {mostrarTabla ? <TablaInmuebles listaInmuebles={Inmuebles} />: <FormularioCreacionInmueble />}
+           {mostrarTabla ? (
+           <TablaInmuebles listaInmuebles={Inmuebles} />
+           ) : ( <FormularioCreacionInmueble />
+           )}
        </div>
     )
 }
@@ -121,4 +124,4 @@ const FormularioCreacionInmueble = () => {
     );
 };
 
-export default Inmuebles
+export default Inmuebles;
