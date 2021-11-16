@@ -1,12 +1,44 @@
 import React, {useEffect, useState} from 'react'
 
 
-
+const vehiculosBackend = [
+    {
+        idInmueble: 'HR2542',
+        direccionInmueble: '24 pimpama rd',
+        area: 400,
+        precio: 500,
+    },
+    {
+        idInmueble: 'RF5414',
+        direccionInmueble: 'nido de tormenta street',
+        area: 300,
+        precio: 500,
+    },
+    {
+        idInmueble: 'GT7852',
+        direccionInmueble: 'Mansquick street',
+        area: 800,
+        precio: 1200,
+    },
+    {
+        idInmueble: 'CF7856',
+        direccionInmueble: 'CLEMENT ROAD',
+        area: 1200,
+        precio: 3500,
+    },
+]
 
 const Inmuebles = () => {
     
     const [mostrarTabla, setMostrarTabla] = useState(true);
+    const [inmuebles, setInmuebles] = useState([]);
     const [textoBoton, setTextoBoton] = useState('Crear Nuevo Inmueble');
+
+    useEffect (() => {
+        //obtener lista de vehiciculos de backend
+        setVehiculos(vehiculosBackend);
+    }, []);
+
     useEffect(()=>{
         if(mostrarTabla){
           setTextoBoton('Crear Nuevo Inmueble');  
@@ -29,13 +61,16 @@ const Inmuebles = () => {
             {textoBoton}</button>
 
            </div>
-           {mostrarTabla ? <TablaInmuebles />: <FormularioCreacionInmueble />}
+           {mostrarTabla ? <TablaInmuebles listaInmuebles={Inmuebles} />: <FormularioCreacionInmueble />}
        </div>
     )
 }
 
 
-const TablaInmuebles = () => {
+const TablaInmuebles = ({listaInmuebles}) => {
+    useEffect(() => {
+        console.log('este es el estado del listado de inmuebles en el componente de tabla', listaInmuebles);
+    }, [listaInmuebles]);
     return (
         <div className='flex flex-col items-center justify-center'>
          <h2 className='text-2xl font-extrabold text-gray-800'> Todos los Inmuebles </h2>
@@ -49,30 +84,16 @@ const TablaInmuebles = () => {
                 </tr>
             </thead>
             <tbody>
+                {listaInmuebles.map((inmueble)=>{
+                    return(
                 <tr>
-                    <td>AS2510</td>
-                    <td>Unit 6, 25 Coronation road</td>
-                    <td>51 mts</td>
-                    <td>350</td>
+                    <td>{inmueble.idInmueble}</td>
+                    <td>{inmueble.direccionInmueble}</td>
+                    <td>{inmueble.area}</td>
+                    <td>{inmueble.precio}</td>
                 </tr>
-                <tr>
-                    <td>RH4510</td>
-                    <td> 61 Maryvale street</td>
-                    <td>85 mts</td>
-                    <td>420</td>
-                </tr>
-                <tr>
-                    <td>AH7820</td>
-                    <td>Unit 3, 15 Mc cuaired road</td>
-                    <td>110 mts</td>
-                    <td>600</td>
-                </tr>
-                <tr>
-                    <td>F2110</td>
-                    <td>Unit 6, 25 Coronation road</td>
-                    <td>51 mts</td>
-                    <td>350</td>
-                </tr>
+                    )
+                })}
             </tbody>
             </table>
         </div>
