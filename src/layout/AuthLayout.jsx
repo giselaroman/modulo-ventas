@@ -1,6 +1,6 @@
 import React from 'react';
-import Logo from 'media/logo.png';
-import {Link} from 'react-router-dom'
+//import Logo from 'media/logo.png';
+//import {Link} from 'react-router-dom'
 
 
 const AuthLayout = ({children}) => {

@@ -31,7 +31,7 @@ const inmueblesBackend = [
 const Inmuebles = () => {
     
     const [mostrarTabla, setMostrarTabla] = useState(true);
-    const [inmuebles, setInmuebles] = useState([]);
+    const [Inmuebles, setInmuebles] = useState([]);
     const [textoBoton, setTextoBoton] = useState('Crear Nuevo Inmueble');
 
     useEffect (() => {
@@ -103,12 +103,12 @@ const TablaInmuebles = ({listaInmuebles}) => {
     )
 };
  
-const FormularioCreacionInmueble = () => {
+const FormularioCreacionInmueble = ({setMostrarTabla}) => {
     return (
     <div className='flex flex-col items-center justify-center'> 
         <h2 className='text-2xl font-extrabold text-gray-800'>Crear Nuevo Inmueble</h2>
         <form classname='grid grid-col-2'>
-            <input ClassName='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2' 
+            <input className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2' 
             type='text' placeholder='IdInmueble' />
             <input className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2' 
             type='text' placeholder='direccionInmueble'/>
@@ -116,7 +116,8 @@ const FormularioCreacionInmueble = () => {
             type='text'placeholder='areaInmueble' />
             <input className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
             type='text'  placeholder='precio'/>
-            <button onclick={()=>setMostrarTabla(true)}
+                <button  onClick= {()=>{setMostrarTabla(true);
+        }}
              className='col-span-2 bg-indigo-400 p-4 rounded-full shadow-md hover:bg-indigo-600
              text-white'>Guardar Inmueble</button>
         </form>
